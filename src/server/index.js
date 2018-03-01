@@ -49,11 +49,12 @@ function createServer(
   const webpackMiddleware = webpackDevMiddleware(compiler, {
     lazy: false,
     noInfo: true,
-    reporter: null,
+    reporter: () => {},
     /**
      * Quiet the default errors, we will handle error by our own
      */
-    quiet: true,
+    // quiet: true,
+    logLevel: 'debug',
     stats: 'errors-only',
     hot: true,
     mimeTypes: { 'application/javascript': ['bundle'] },

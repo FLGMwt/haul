@@ -134,7 +134,7 @@ function create(webpackCompiler: *): Middleware {
     if (!consumer) return next();
 
     // the base directory
-    const root = compiler.options.context;
+    const root = compiler.options.rootContext;
 
     // error error on the wall, who's the fairest stack of all?
     const convertedFrames = unconvertedFrames.map(

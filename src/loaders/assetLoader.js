@@ -5,7 +5,6 @@
  * @flow
  */
 
-const utils = require('loader-utils');
 const size = require('image-size');
 const path = require('path');
 const dedent = require('dedent');
@@ -25,14 +24,10 @@ module.exports = async function assetLoader() {
   this.cacheable();
 
   const callback = this.async();
-
-  const query = utils.getOptions(this) || {};
-  const options = this.options[query.config] || {};
   const config: Config = Object.assign(
     {},
     { platform: 'ios', root: process.cwd() },
-    options,
-    query
+    this.query
   );
 
   const pathSepPattern = new RegExp(`\\${path.sep}`, 'g');
